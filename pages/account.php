@@ -97,7 +97,7 @@ $conn->close();
         <nav>
             <ul id="nav-list">
                 <li><a href="#" id="shops-link">Shops</a></li>
-                <li><a href="#" id="orderHistory-Link">Order History</a></li>
+                <li><a href="#" id="orderHistory-link">Order History</a></li>
                 <li><a href="#" id="howItWorks-link">How it works</a></li>
                 <li><a href="#" id="aboutUs-link">About us</a></li>
                 <li><a href="#" id="cart-link">Cart</a></li>
