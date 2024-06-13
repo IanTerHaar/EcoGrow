@@ -20,7 +20,7 @@
         <nav>
             <ul id="nav-list">
                 <li><a href="#" id="shops-link">Shops</a></li>
-                <li><a href="#" id="orderHistory-Link">Order History</a></li>
+                <li><a href="#" id="orderHistory-link">Order History</a></li>
                 <li><a href="#" id="howItWorks-link">How it works</a></li>
                 <li><a href="#" id="aboutUs-link">About us</a></li>
                 <li><a href="#" id="cart-link">Cart</a></li>
@@ -30,14 +30,35 @@
     </header>
 
     <main>
-        <section id="statistics">
-            <h2>Statistics</h2>
-            <!-- Display statistics here -->
+
+        <section id = ourMission>
+            <h2>Our Mission</h2>
+            <p>At EcoGrow, we aim to revolutionize the way consumers buy their food by connecting them 
+            directly with local farmers. Our mission is to support healthier eating habits, promote sustainability, and 
+            boost local economies.</p>
+        </section>
+
+        <section id="benefits">
+            <h2>Benefits</h2>
+            <h3>For Farmers:</h3>
+            <ul>
+                <li>Direct access to a broader market</li>
+                <li>Increased profit margins by reducing intermediaries</li>
+                <li>Better control over pricing and inventory</li>
+            </ul>
+            <h3>For Consumers</h3>
+            <ul>
+                <li>Access to fresh, locally sourced produce</li>
+                <li>Support for local economies</li>
+                <li>Reduced carbon footprint from shorter supply chains</li>
+            </ul>
+
         </section>
 
         <section id="latest-orders">
-            <h2>Latest Orders</h2>
-            <!-- Display latest orders here -->
+            <h2>Reach us</h2>
+            <p>Message us: 084 985 0541</p>
+            <p>Email us: ecogrowsupport@gmail.com</p>
         </section>
     </main>
 
