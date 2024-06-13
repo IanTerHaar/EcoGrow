@@ -85,5 +85,17 @@ footer p {
     margin: 0;
 }
 
-
+@media (max-width: 600px) {
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px; /* Reduce gap between items */
+    }
+    nav ul li {
+        flex: 1 1 45%; /* Each item takes up approximately half the width, adjust as needed */
+        display: flex;
+        justify-content: center;
+        margin: 5px 0;
+    }
+}
 

@@ -9,7 +9,7 @@ setcookie('site_session', session_id(), 0, "/"); // Set session cookie for the b
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
-    <link rel="stylesheet" href="../assets/css/shopsStyles.css">
+    <link rel="stylesheet" href="../assets/css/cartStyles.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon_resized.png">
 </head>
 <body>
