@@ -31,6 +31,11 @@
 
     <main>
 
+    <section id = ourMission>
+            <h2>Order History</h2>
+            <p>No previous orders found</p>
+    </section>
+
     </main>
 
     <footer>
