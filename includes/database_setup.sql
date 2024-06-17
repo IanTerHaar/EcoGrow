@@ -21,3 +21,8 @@ CREATE TABLE `cart` (
   `shopID` int(255) NOT NULL,
   `quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cartID`),
+  ADD KEY `fk_cart_userID_users` (`userID`),
+  ADD KEY `fk_cart_shopID_users` (`shopID`);
