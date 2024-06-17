@@ -1,8 +1,8 @@
 <?php
-session_start();
+//session_start();
 
-/*$logData = 'Session Data: ' . print_r($_SESSION, true) . "\n";
-file_put_contents('../logs/session_debug.log', $logData, FILE_APPEND);*/
+$logData = 'Session Data: ' . print_r($_SESSION, true) . "\n";
+file_put_contents('../logs/session_debug.log', $logData, FILE_APPEND);
 
 // Assuming the user is logged in and userID is stored in session
 if (!isset($_SESSION['user_id'])) {
