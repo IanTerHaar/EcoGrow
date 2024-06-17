@@ -24,12 +24,12 @@ setcookie('site_session', session_id(), 0, "/"); // Set session cookie for the b
         </div>
         <nav>
             <ul id="nav-list">
-                <li><a href="#" id="shops-link">Shops</a></li>
-                <li><a href="#" id="orderHistory-link">Order History</a></li>
-                <li><a href="#" id="howItWorks-link">How it works</a></li>
-                <li><a href="#" id="aboutUs-link">About us</a></li>
-                <li><a href="#" id="cart-link">Cart</a></li>
-                <li><a href="#" id="account-link">Account</a></li>
+                <li><a href="../pages/shops.php" id="shops-link">Shops</a></li>
+                <li><a href="../pages/orderHistory.php" id="orderHistory-link">Order History</a></li>
+                <li><a href="../pages/howItWorks.php" id="howItWorks-link">How it works</a></li>
+                <li><a href="../pages/aboutUs.php" id="aboutUs-link">About us</a></li>
+                <li><a href="../pages/cart.php" id="cart-link">Cart</a></li>
+                <li><a href="../pages/account.php" id="account-link">Account</a></li>
             </ul>
         </nav>
     </header>
@@ -124,42 +124,7 @@ setcookie('site_session', session_id(), 0, "/"); // Set session cookie for the b
             });
         });
 
-        document.getElementById('shops-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/shops.php';
-        });
-
-        document.getElementById('orderHistory-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/orderHistory.php';
-        });
-
-        document.getElementById('howItWorks-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/howItWorks.php';
-        });
-
-        document.getElementById('aboutUs-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/aboutUs.php';
-        });
-
-        document.getElementById('cart-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/cart.php';
-        });
-
-        const accountLink = document.getElementById('account-link');
-        if (accountLink) {
-            accountLink.addEventListener('click', function(event) {
-                event.preventDefault();
-                window.location.href = '../pages/account.php';
-            });
-        }
-
-        window.addEventListener('beforeunload', function () {
-        navigator.sendBeacon('../process/logout.php');
-        });
+                
     </script>
 </body>
 </html>

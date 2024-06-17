@@ -98,7 +98,7 @@ $userID = $_SESSION['user_id'];
 
     <script>
         document.querySelectorAll('.shop-button').forEach(button => {
-    button.addEventListener('click', function() {
+        button.addEventListener('click', function() {
         const shopID = this.getAttribute('data-shop-id');
         const userID = <?php echo json_encode($userID); ?>; // Pass the userID from PHP
 
@@ -122,42 +122,8 @@ $userID = $_SESSION['user_id'];
             alert('An error occurred while adding the item to the cart.');
         });
     });
-});
-
-       /* document.getElementById('shops-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/shops.php';
-        });
-
-        document.getElementById('orderHistory-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/orderHistory.php';
-        });
-
-        document.getElementById('howItWorks-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/howItWorks.php';
-        });
-
-        document.getElementById('aboutUs-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/aboutUs.php';
-        });
-
-        document.getElementById('cart-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/cart.php';
-        });
-
-        document.getElementById('account-link').addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = '../pages/account.php';
-        });
-*/
-
-        window.addEventListener('beforeunload', function () {
-            navigator.sendBeacon('../process/logout.php');
-        });
+    });
+        
     </script>
 </body>
 </html>
