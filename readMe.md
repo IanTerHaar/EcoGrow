@@ -9,3 +9,11 @@ Our proposed solution, the EcoGrow platform, aligns with this desired future sta
 ## Clone the repository:
 ```bash
 git clone https://github.com/IanTerHaar/EcoGrow.git
+```
+## Files that contain db connection
+* pages/account.php
+* pages/shops.php
+* includes/db.php
+* pages/cart.php
+* process/checkout.php
+* process/remove_from_cart.php
