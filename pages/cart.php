@@ -1,8 +1,38 @@
 <?php
 session_start();
 setcookie('site_session', session_id(), 0, "/"); // Set session cookie for the browser session
-?>
 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "ecogrow";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $input = json_decode(file_get_contents('php://input'), true);
+    $shopID = $input['shopID'];
+    
+    // Assuming quantity is always 1 for simplicity
+    $quantity = 1;
+    $userID = $_SESSION['user_id'];
+
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
+    }
+    
+    $_SESSION['cart'][] = ['userID' => $userID, 'shopID' => $shopID, 'quantity' => $quantity];
+
+    echo json_encode(['success' => true]);
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,69 +63,67 @@ setcookie('site_session', session_id(), 0, "/"); // Set session cookie for the b
             </ul>
         </nav>
     </header>
-
     <main>
-        <section id="cart-section">
+    <section id="cart-section">
             <h2>Cart</h2>
             <div class="cart-list" id="cart-list">
                 <?php
-                if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-                    $servername = "localhost";
-                    $username = "root";
-                    $password = "";
-                    $dbname = "ecogrow";
+                $totalPrice = 0;
+                if (isset($_SESSION['user_id'])) {
+                    $userID = $_SESSION['user_id'];
+                    $sql = "SELECT c.shopID, c.quantity, s.shopName, s.shopLocation, s.shopProduct, s.shopPrice, s.shopImagePath 
+                            FROM cart c
+                            JOIN shops s ON c.shopID = s.shopID
+                            WHERE c.userID = ?";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bind_param("i", $userID);
+                    $stmt->execute();
+                    $result = $stmt->get_result();
 
-                    // Create connection
-                    $conn = new mysqli($servername, $username, $password, $dbname);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $shopName = htmlspecialchars($row['shopName']);
+                            $shopLocation = htmlspecialchars($row['shopLocation']);
+                            $shopProduct = htmlspecialchars($row['shopProduct']);
+                            $shopPrice = htmlspecialchars($row['shopPrice']);
+                            $shopImagePath = htmlspecialchars($row['shopImagePath']);
+                            $quantity = htmlspecialchars($row['quantity']);
+                            $itemTotal = $shopPrice * $quantity;
+                            $totalPrice += $itemTotal;
 
-                    // Check connection
-                    if ($conn->connect_error) {
-                        die("Connection failed: " . $conn->connect_error);
-                    }
-
-                    foreach ($_SESSION['cart'] as $item) {
-                        $shopID = $item['shopID'];
-                        $quantity = $item['quantity'];
-
-                        $sql = "SELECT shopName, shopLocation, shopProduct, shopPrice, shopImagePath FROM shops WHERE shopID = ?";
-                        $stmt = $conn->prepare($sql);
-                        $stmt->bind_param("i", $shopID);
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                $shopName = htmlspecialchars($row['shopName']);
-                                $shopLocation = htmlspecialchars($row['shopLocation']);
-                                $shopProduct = htmlspecialchars($row['shopProduct']);
-                                $shopPrice = htmlspecialchars($row['shopPrice']);
-                                $shopImagePath = htmlspecialchars($row['shopImagePath']);
-
-                                echo "<div class='cart-item'>";
-                                echo "<img src='../assets/images/$shopImagePath' alt='Shop Image'>";
-                                echo "<h3>$shopName</h3>";
-                                echo "<p>Location: $shopLocation</p>";
-                                echo "<p>Products: $shopProduct</p>";
-                                echo "<p>Price: R$shopPrice per unit</p>";
-                                echo "<p>Quantity: $quantity</p>";
-                                echo "</div>";
-                            }
+                            echo "<div class='cart-item'>";
+                            echo "<div class='image-container'>";
+                            echo "<img src='../assets/images/$shopImagePath' alt='Shop Image'>";
+                            echo "<button class='remove-button' data-shop-id='$row[shopID]'>Remove</button>";
+                            echo "</div>";
+                            echo "<div class='details'>";
+                            echo "<h3>$shopName</h3>";
+                            echo "<p>Location: $shopLocation</p>";
+                            echo "<p>Products: $shopProduct</p>";
+                            echo "<p>Price: R$shopPrice per unit</p>";
+                            echo "<p>Quantity: $quantity</p>";
+                            echo "<p>Total: R$itemTotal</p>";
+                            echo "</div>";
+                            echo "</div>";
                         }
+                    } else {
+                        echo "<p>Your cart is empty.</p>";
                     }
-
-                    $conn->close();
+                    $stmt->close();
                 } else {
                     echo "<p>Your cart is empty.</p>";
                 }
                 ?>
             </div>
+            <div class="cart-total">
+                <h3>Total Price: R<?php echo $totalPrice; ?></h3>
+                <button id="checkout-button">Proceed to Checkout</button>
+            </div>
         </section>
     </main>
-
     <footer>
         <p>&copy; 2024 EcoGrow</p>
     </footer>
-
     <script>
         document.querySelectorAll('.shop-button').forEach(button => {
             button.addEventListener('click', function() {
@@ -124,7 +152,57 @@ setcookie('site_session', session_id(), 0, "/"); // Set session cookie for the b
             });
         });
 
-                
+        document.querySelectorAll('.remove-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const shopID = this.getAttribute('data-shop-id');
+                fetch('../process/remove_from_cart.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ shopID: shopID })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Item removed from cart');
+                        location.reload();
+                    } else {
+                        alert('Failed to remove item from cart');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while removing the item from the cart.');
+                });
+            });
+        });
+
+        document.getElementById('checkout-button').addEventListener('click', function() {
+            fetch('../process/checkout.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Order placed');
+                    location.reload();
+                } else {
+                    alert('Failed to place order');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while placing the order.');
+            });
+        });
     </script>
 </body>
 </html>
+<?php
+$conn->close();
+?>
