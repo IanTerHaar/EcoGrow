@@ -1,3 +1,4 @@
 .tmp.drivedownload
 .tmp.driveupload
 /logs
+/tempFiles
