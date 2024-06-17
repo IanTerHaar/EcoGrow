@@ -1,5 +1,5 @@
 <?php
-//session_start();
+session_start();
 
 $logData = 'Session Data: ' . print_r($_SESSION, true) . "\n";
 file_put_contents('../logs/session_debug.log', $logData, FILE_APPEND);
@@ -124,7 +124,7 @@ $userID = $_SESSION['user_id'];
     });
 });
 
-        document.getElementById('shops-link').addEventListener('click', function(event) {
+       /* document.getElementById('shops-link').addEventListener('click', function(event) {
             event.preventDefault();
             window.location.href = '../pages/shops.php';
         });
@@ -153,6 +153,7 @@ $userID = $_SESSION['user_id'];
             event.preventDefault();
             window.location.href = '../pages/account.php';
         });
+*/
 
         window.addEventListener('beforeunload', function () {
             navigator.sendBeacon('../process/logout.php');
