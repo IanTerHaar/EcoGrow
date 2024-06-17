@@ -1,6 +1,6 @@
 Die probleem is as ek inlog (index.php) werk dit fine, die session variable (user_id) word gestoor en dit kan confirmed word deur na die logs/session_debug.log te kyk.
 Na die inlog stuur dit my na dashboard.php toe en dan as ek op die Shops link click load alles soos dit moet, maar sodra ek weg beweeg vanaf shops en terug gaan raak die session
-variable verlore:
+variable verlore en hy redirect my terug na index.php (wat moet gebeur as daar nie n user_id in is nie):
 
 Hoe die logs lyk:
 
