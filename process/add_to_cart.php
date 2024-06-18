@@ -1,18 +1,15 @@
 <?php
 session_start();
 
-// Enable error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Include database connection
 include '../includes/db.php';
 
-// Get the posted data
 $data = json_decode(file_get_contents('php://input'), true);
 $userID = $data['userID'];
 $shopID = $data['shopID'];
-$quantity = 1; // Default quantity to add
+$quantity = 1;
 
 // Check if the item already exists in the cart
 $sql = "SELECT quantity FROM cart WHERE userID = ? AND shopID = ?";

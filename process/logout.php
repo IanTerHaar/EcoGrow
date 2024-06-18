@@ -18,11 +18,9 @@ if (ini_get("session.use_cookies")) {
 
 // Check if the request is an AJAX request
 if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
-    // Respond with a JSON message for AJAX requests
     header('Content-Type: application/json');
     echo json_encode(['success' => true]);
 } else {
-    // Redirect to login page for regular requests
     header("Location: ../index.php");
     exit;
 }
