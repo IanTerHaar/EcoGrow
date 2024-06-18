@@ -123,11 +123,11 @@ $conn->close();
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
 
-                <button type="submit">Update Information</button>
+                <button type="submit" class="form-button">Update Information</button>
             </form>
 
             <form action="../process/logout.php" method="post">
-                <button type="submit">Logout</button>
+                <button type="submit" class="form-button">Logout</button>
             </form>
         </section>
     </main>

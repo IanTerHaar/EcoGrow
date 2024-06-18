@@ -133,6 +133,11 @@ footer p {
     margin: 0;
 }
 
+.form-button {
+    margin-top: 5px; /* Adjust the top margin as needed */
+    margin-bottom: 5px; /* Adjust the bottom margin as needed */
+}
+
 @media (max-width: 600px) {
     nav ul {
         flex-wrap: wrap;
