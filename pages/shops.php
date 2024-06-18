@@ -4,7 +4,7 @@ session_start();
 include '../includes/db.php';
 
 $logData = 'Session Data: ' . print_r($_SESSION, true) . "\n";
-file_put_contents('../logs/session_debug.log', $logData, FILE_APPEND);
+file_put_contents('../logs/session_debug_shops.log', $logData, FILE_APPEND);
 
 if (!isset($_SESSION['user_id'])) {
     // Redirect to login page
@@ -19,7 +19,7 @@ $userID = $_SESSION['user_id'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shops</title>
+    <title>Shop</title>
     <link rel="stylesheet" href="../assets/css/shopsStyles.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon_resized.png">
 </head>
@@ -31,7 +31,7 @@ $userID = $_SESSION['user_id'];
                     <img src="../assets/images/ecogrow logo.png" alt="logo">
                 </a>
             </div>
-            <h1>Shops</h1>
+            <h1>Shop</h1>
         </div>
         <nav>
             <ul id="nav-list">
@@ -47,7 +47,7 @@ $userID = $_SESSION['user_id'];
 
     <main>
         <section id="shops-section">
-            <h2>Shops</h2>
+            <h2>Shop</h2>
             <div class="shop-list" id="shop-list">
                 <?php
                 $sql = "SELECT shopID, shopName, shopLocation, shopProduct, shopPrice, shopImagePath FROM shops";
