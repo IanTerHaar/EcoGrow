@@ -96,7 +96,7 @@ form input[type="password"] {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
-    background-color: #fff9c4; /* light yellow background */
+    background-color: #fff9c4;
 }
 
 form input[type="text"]:focus,
@@ -108,7 +108,7 @@ form input[type="password"]:focus {
 
 button[type="submit"] {
     width: 100%;
-    background-color: #4CAF50; /* green background */
+    background-color: #4CAF50;
     color: white;
     padding: 10px;
     border: none;
@@ -142,10 +142,10 @@ footer p {
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px; /* Reduce gap between items */
+        gap: 10px;
     }
     nav ul li {
-        flex: 1 1 45%; /* Each item takes up approximately half the width, adjust as needed */
+        flex: 1 1 45%;
         display: flex;
         justify-content: center;
         margin: 5px 0;

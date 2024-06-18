@@ -177,10 +177,10 @@ footer p {
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px; /* Reduce gap between items */
+        gap: 10px;
     }
     nav ul li {
-        flex: 1 1 45%; /* Each item takes up approximately half the width, adjust as needed */
+        flex: 1 1 45%;
         display: flex;
         justify-content: center;
         margin: 5px 0;
