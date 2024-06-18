@@ -1,13 +1,12 @@
 <?php
 session_start();
 include '../includes/db.php';
-setcookie('site_session', session_id(), 0, "/"); // Set session cookie for the browser session
+//setcookie('site_session', session_id(), 0, "/");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
     $shopID = $input['shopID'];
     
-    // Assuming quantity is always 1 for simplicity
     $quantity = 1;
     $userID = $_SESSION['user_id'];
 

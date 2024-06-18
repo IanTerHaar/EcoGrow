@@ -6,9 +6,8 @@ include '../includes/db.php';
 $logData = 'Session Data: ' . print_r($_SESSION, true) . "\n";
 file_put_contents('../logs/session_debug.log', $logData, FILE_APPEND);
 
-// Assuming the user is logged in and userID is stored in session
 if (!isset($_SESSION['user_id'])) {
-    // Redirect to login page or handle the error
+    // Redirect to login page
     header("Location: ../index.php");
     exit();
 }
@@ -61,9 +60,9 @@ $userID = $_SESSION['user_id'];
                         $shopLocation = htmlspecialchars($row['shopLocation']);
                         $shopProduct = htmlspecialchars($row['shopProduct']);
                         $shopPrice = htmlspecialchars($row['shopPrice']);
-                        $shopImagePath = htmlspecialchars($row['shopImagePath']); // Fetch the image path from the database
+                        $shopImagePath = htmlspecialchars($row['shopImagePath']);
                         echo "<div class='shop-item' data-shop-id='$shopID'>";
-                        echo "<img src='../assets/images/$shopImagePath' alt='Shop Image'>"; // Reference the image from the assets/images directory
+                        echo "<img src='../assets/images/$shopImagePath' alt='Shop Image'>";
                         echo "<h3>$shopProduct</h3>";
                         echo "<p>Location: $shopLocation</p>";
                         echo "<p>Farm Name: $shopName</p>";

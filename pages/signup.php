@@ -1,5 +1,4 @@
 <?php
-// Enable error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -22,20 +21,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // Email already used
         $error_message = "This email is already registered. Please use a different email.";
     } else {
         // Hash the password
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-        // Prepare an insert statement
         $sql = "INSERT INTO users (name, surname, email, password) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ssss", $name, $surname, $email, $hashed_password);
 
-          // Execute the statement
           if ($stmt->execute()) {
-            // Registration successful, redirect to login page
             header("Location: ../index.php");
             exit;
         } else {

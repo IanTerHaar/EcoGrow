@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Add validation as necessary
     if (empty($name) || empty($surname) || empty($email) || empty($password)) {
         $error = "All fields are required.";
     } else {
@@ -78,7 +77,7 @@ $conn->close();
     
         <div class="title-logo-container">
             <div class="logo-container">
-                <a href="../pages/dashboard.php"> <!-- Added anchor tag -->
+                <a href="../pages/dashboard.php">
                     <img src="../assets/images/ecogrow logo.png" alt="logo">
                 </a>
             </div>

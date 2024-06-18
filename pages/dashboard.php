@@ -11,7 +11,7 @@
     <header>
         <div class="title-logo-container">
             <div class="logo-container">
-                <a href="../pages/dashboard.php"> <!-- Added anchor tag -->
+                <a href="../pages/dashboard.php">
                     <img src="../assets/images/ecogrow logo.png" alt="logo">
                 </a>
             </div>
