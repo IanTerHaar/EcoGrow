@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order History</title>
+    <title>Contact us</title>
     <link rel="stylesheet" href="../assets/css/shopsStyles.css">
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon_resized.png">
 </head>
@@ -15,12 +15,12 @@
                     <img src="../assets/images/ecogrow logo.png" alt="logo">
                 </a>
             </div>
-            <h1>Order History</h1>
+            <h1>Contact us</h1>
         </div>
         <nav>
             <ul id="nav-list">
                 <li><a href="../pages/shops.php" id="shops-link">Shops</a></li>
-                <li><a href="../pages/orderHistory.php" id="orderHistory-link">Order History</a></li>
+                <li><a href="../pages/contactUs.php" id="contactUs-link">Contact Us</a></li>
                 <li><a href="../pages/howItWorks.php" id="howItWorks-link">How it works</a></li>
                 <li><a href="../pages/aboutUs.php" id="aboutUs-link">About us</a></li>
                 <li><a href="../pages/cart.php" id="cart-link">Cart</a></li>

@@ -20,7 +20,7 @@
         <nav>
             <ul id="nav-list">
                 <li><a href="../pages/shops.php" id="shops-link">Shops</a></li>
-                <li><a href="../pages/orderHistory.php" id="orderHistory-link">Order History</a></li>
+                <li><a href="../pages/contactUs.php" id="contactUs-link">Contact Us</a></li>
                 <li><a href="../pages/howItWorks.php" id="howItWorks-link">How it works</a></li>
                 <li><a href="../pages/aboutUs.php" id="aboutUs-link">About us</a></li>
                 <li><a href="../pages/cart.php" id="cart-link">Cart</a></li>
