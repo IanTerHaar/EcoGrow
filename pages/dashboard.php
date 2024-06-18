@@ -55,10 +55,16 @@
 
         </section>
 
+        <section id="want-to-sell?">
+            <h2>Want to sell?</h2>
+            <p>Message us: 082 956 9856</p>
+            <p>Email us: sell@ecogrow.co.za</p>
+        </section>
+
         <section id="latest-orders">
             <h2>Reach us</h2>
             <p>Message us: 084 985 0541</p>
-            <p>Email us: ecogrowsupport@gmail.com</p>
+            <p>Email us: support@ecogrow.co.za</p>
         </section>
     </main>
 
