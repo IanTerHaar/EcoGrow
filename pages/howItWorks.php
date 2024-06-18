@@ -35,14 +35,12 @@
             <h3>1. Sign Up</h3>
             <p>Create an account by providing your basic information. Farmers and consumers can both join our platform to buy and sell fresh produce.</p>
             <h3>2. Set Up Your Profile</h3>
-            <p>Complete your profile with relevant details. Farmers can add their available produce, while consumers can set their preferences for buying.</p>
+            <p>Complete your profile with relevant details.</p>
             <h3>3. Browse and Purchase</h3>
-            <p>Consumers can browse through the list of available produce and make purchases. Farmers can manage their orders and inventory from their dashboard.</p>
+            <p>Consumers can browse through the list of available produce and make purchases.</p>
             <h3>4. Delivery</h3>
-            <p>Once an order is placed, farmers will prepare the produce for delivery. We ensure that all deliveries are made in a timely and efficient manner. The option for pick up is also available.</p>
-            <h3>5. Feedback</h3>
-            <p>After receiving the produce, consumers can leave feedback for the farmers. This helps in maintaining quality and trust within our community.</p>
-            <p>Thank you for choosing EcoGrow! We strive to make fresh and local produce accessible to everyone while supporting our local farmers.</p>    
+            <p>Once an order is placed, farmers will prepare the produce for delivery. We ensure that all deliveries are made in a timely and efficient manner.</p>
+               
         </section>
     </main>
     <footer>
