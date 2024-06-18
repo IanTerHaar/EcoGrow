@@ -102,3 +102,10 @@ if ($conn->connect_error) {
 ?>
 ```
 ## Conclusion
+Thank you for using EcoGrow! Our platform is designed to provide a seamless and efficient way for consumers to access fresh, locally sourced produce while supporting local farmers. By connecting directly with farmers, you are contributing to a more sustainable and eco-friendly food supply chain. We hope this user manual helps you navigate the EcoGrow platform effectively. 
+
+If you have any questions or need further assistance, please don't hesitate to contact us through the "Contact Us" page. Together, we can make a positive impact on our community and the environment.
+
+Happy shopping!
+
+The EcoGrow Team
