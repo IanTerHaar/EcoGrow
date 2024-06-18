@@ -134,8 +134,8 @@ footer p {
 }
 
 .form-button {
-    margin-top: 5px; /* Adjust the top margin as needed */
-    margin-bottom: 5px; /* Adjust the bottom margin as needed */
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 @media (max-width: 600px) {
