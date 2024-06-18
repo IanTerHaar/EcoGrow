@@ -80,6 +80,56 @@ The navigation bar at the top of the page contains links to various sections of 
 4. Click the "Log Out" button to log out and return to the login page.
 
 ## Database Configuration
+
+### Creating the Database
+To set up the EcoGrow database in phpMyAdmin, follow these steps:
+
+1. Open phpMyAdmin in your web browser.
+2. Click on the "Databases" tab.
+3. In the "Create database" field, enter a name for your database (e.g., `ecogrow`).
+4. Click the "Create" button.
+
+Next, create the required tables by running the following SQL script:
+
+```sql
+CREATE TABLE `users` (
+  `userID` int(10) UNSIGNED NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `surname` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `shops` (
+  `shopID` int(10) UNSIGNED NOT NULL,
+  `shopName` varchar(50) NOT NULL,
+  `shopLocation` varchar(50) NOT NULL,
+  `shopProduct` varchar(100) NOT NULL,
+  `shopPrice` int(50) NOT NULL,
+  `shopImagePath` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `cart` (
+  `cartID` int(10) UNSIGNED NOT NULL,
+  `userID` int(255) NOT NULL,
+  `shopID` int(255) NOT NULL,
+  `quantity` int(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+ALTER TABLE `cart`
+  ADD PRIMARY KEY (`cartID`),
+  ADD KEY `fk_cart_userID_users` (`userID`),
+  ADD KEY `fk_cart_shopID_users` (`shopID`);
+  ```
+  To run the SQL script:
+
+1. In phpMyAdmin, select the database you just created from the left-hand sidebar.
+2. Click on the "SQL" tab.
+3. Copy and paste the SQL script into the text field.
+4. Click the "Go" button to execute the script and create the tables.
+
+### Updating Database Connection Details
+
 To configure the database details, you need to update the `includes/db.php` file in the repository.
 
 1. Open the `includes/db.php` file.
@@ -101,6 +151,8 @@ if ($conn->connect_error) {
 }
 ?>
 ```
+Replace your_servername, your_username, your_password, and your_dbname with the actual database details.
+
 ## Conclusion
 Thank you for using EcoGrow! Our platform is designed to provide a seamless and efficient way for consumers to access fresh, locally sourced produce while supporting local farmers. By connecting directly with farmers, you are contributing to a more sustainable and eco-friendly food supply chain. We hope this user manual helps you navigate the EcoGrow platform effectively. 
 
