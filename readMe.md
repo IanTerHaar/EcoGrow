@@ -23,12 +23,7 @@ http://ecogrow.free.nf
 git clone https://github.com/IanTerHaar/EcoGrow.git
 ```
 ## Files that contain db connection
-* pages/account.php
-* pages/shops.php
 * includes/db.php
-* pages/cart.php
-* process/checkout.php
-* process/remove_from_cart.php
 
 ## Acknowledgements
 - Thanks to Ian Ter Haar(https://github.com/IanTerHaar) for their creative idea.
