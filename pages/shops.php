@@ -4,7 +4,7 @@ session_start();
 include '../includes/db.php';
 
 $logData = 'Session Data: ' . print_r($_SESSION, true) . "\n";
-file_put_contents('../logs/session_debug_shops.log', $logData, FILE_APPEND);
+file_put_contents('../logs/session_debug_shops.txt', $logData, FILE_APPEND);
 
 if (!isset($_SESSION['user_id'])) {
     // Redirect to login page
