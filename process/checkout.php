@@ -1,12 +1,9 @@
 <?php
 session_start();
 
-header('Content-Type: application/json');
+include '../includes/db.php';
 
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ecogrow";
+header('Content-Type: application/json');
 
 $response = ['success' => false];
 

@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include '../includes/db.php';
+
 $logData = 'Session Data: ' . print_r($_SESSION, true) . "\n";
 file_put_contents('../logs/session_debug.log', $logData, FILE_APPEND);
 
@@ -49,19 +51,6 @@ $userID = $_SESSION['user_id'];
             <h2>Shops</h2>
             <div class="shop-list" id="shop-list">
                 <?php
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "ecogrow";
-
-                // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
-
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-
                 $sql = "SELECT shopID, shopName, shopLocation, shopProduct, shopPrice, shopImagePath FROM shops";
                 $result = $conn->query($sql);
 

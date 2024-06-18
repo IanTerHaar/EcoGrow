@@ -1,25 +1,15 @@
 <?php
 session_start();
 
+include '../includes/db.php';
+
 // Check if the user is logged in
 if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     header("Location: ../index.php");
     exit();
 }
 
-
 $user_id = $_SESSION['user_id'];
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ecogrow";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 $success = "";
 $error = "";

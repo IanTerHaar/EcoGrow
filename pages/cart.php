@@ -1,19 +1,7 @@
 <?php
 session_start();
+include '../includes/db.php';
 setcookie('site_session', session_id(), 0, "/"); // Set session cookie for the browser session
-
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "ecogrow";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);

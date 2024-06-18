@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+include '../includes/db.php';
+
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -8,14 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($input['shopID']) && isset($_SESSION['user_id'])) {
         $shopID = $input['shopID'];
         $userID = $_SESSION['user_id'];
-
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "ecogrow";
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
 
         // Check connection
         if ($conn->connect_error) {
