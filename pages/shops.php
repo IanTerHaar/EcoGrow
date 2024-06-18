@@ -64,9 +64,9 @@ $userID = $_SESSION['user_id'];
                         $shopImagePath = htmlspecialchars($row['shopImagePath']); // Fetch the image path from the database
                         echo "<div class='shop-item' data-shop-id='$shopID'>";
                         echo "<img src='../assets/images/$shopImagePath' alt='Shop Image'>"; // Reference the image from the assets/images directory
-                        echo "<h3>$shopName</h3>";
+                        echo "<h3>$shopProduct</h3>";
                         echo "<p>Location: $shopLocation</p>";
-                        echo "<p>Products: $shopProduct</p>";
+                        echo "<p>Farm Name: $shopName</p>";
                         echo "<p>Price: R$shopPrice per unit</p>";
                         echo "<button class='shop-button' data-shop-id='$shopID'>Add to cart</button>";
                         echo "</div>";
