@@ -3,6 +3,9 @@ session_start();
 
 include '../includes/db.php';
 
+$logData = 'Session Data: ' . print_r($_SESSION, true) . "\n";
+file_put_contents('../logs/session_debug_account.log', $logData, FILE_APPEND);
+
 // Check if the user is logged in
 if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     header("Location: ../index.php");
