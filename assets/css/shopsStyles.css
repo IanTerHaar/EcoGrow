@@ -144,6 +144,9 @@ main {
     font-size: 1em;
     margin-top: 10px;
     transition: background-color 0.3s;
+    width: 120px;
+    text-align: center;
+    white-space: nowrap;
 }
 
 .shop-button:hover {

@@ -89,6 +89,8 @@ $userID = $_SESSION['user_id'];
         button.addEventListener('click', function() {
         const shopID = this.getAttribute('data-shop-id');
         const userID = <?php echo json_encode($userID); ?>; // Pass the userID from PHP
+        const originalText = this.textContent;
+        const button = this;
 
         fetch('../process/add_to_cart.php', {
             method: 'POST',
@@ -100,14 +102,16 @@ $userID = $_SESSION['user_id'];
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                alert(data.message);
-            } else {
-                alert('Failed to add item to cart: ' + data.message);
-            }
-        })
+                        button.textContent = 'Added';
+                        setTimeout(() => {
+                            button.textContent = originalText;
+                        }, 1000);
+                    } else {
+                        console.error('Failed to add item to cart:', data.message);
+                    }
+            })
         .catch(error => {
             console.error('Error:', error);
-            alert('An error occurred while adding the item to the cart.');
         });
     });
     });
