@@ -152,7 +152,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        alert('Item removed from cart');
                         location.reload();
                     } else {
                         alert('Failed to remove item from cart');
@@ -166,6 +165,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         });
 
         document.getElementById('checkout-button').addEventListener('click', function() {
+            const button = this;
+            const originalText = button.textContent;
+            
             fetch('../process/checkout.php', {
                 method: 'POST',
                 headers: {
@@ -176,8 +178,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Order placed');
-                    location.reload();
+                    button.textContent = 'Order Placed!';
+                    setTimeout(() => {
+                        button.textContent = originalText;
+                        location.reload();
+                    }, 1000);
                 } else {
                     alert('Failed to place order');
                 }
