@@ -4,6 +4,7 @@ EcoGrow, a start-up based in Cape Town, South Africa, aims to revolutionize food
 
 ## Table of contents
 - [Live Website](#live-website)
+- [Screenshots](#screenshots)
 - [Features](#features)
 - [Cloning](#clone-the-repository)
 - [Database Files](#files-that-contain-db-connection)
@@ -13,6 +14,9 @@ EcoGrow, a start-up based in Cape Town, South Africa, aims to revolutionize food
 ```bash
 http://ecogrow.free.nf
 ```
+
+## Screenshots
+![dashboard](https://github.com/user-attachments/assets/7d05b6b0-ebc1-4a1e-b74f-2cbf0dc1875b)
 
 ## Features
 - Feature 1: Browse imaginary food from local farmer and place orders which you will never receive.
