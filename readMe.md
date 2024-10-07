@@ -17,6 +17,8 @@ http://ecogrow.free.nf
 
 ## Screenshots
 ![dashboard](https://github.com/user-attachments/assets/7d05b6b0-ebc1-4a1e-b74f-2cbf0dc1875b)
+![shop](https://github.com/user-attachments/assets/8e2d5976-0133-4452-86c7-0c0ec7869182)
+![cart](https://github.com/user-attachments/assets/f4f19ffe-d667-4ed7-8618-1c4972ae1c55)
 
 ## Features
 - Feature 1: Browse imaginary food from local farmer and place orders which you will never receive.
